@@ -276,7 +276,18 @@ exports.add_post = async (req, res, next) => {
  } 
  exports.delete_user = async (req,res,next ) => {
      try{
-        await userModel.deleteOne({_id : req.body.id })
+        const user = await userModel.findOne({_id : req.body.id })
+        if(!user) return res.redirect(404,'/')
+        if(user.avt !== '/img/avt-2.png' && user.avt !== '/img/admin.png') {
+            axios({
+                method : 'delete',
+                url : user.avt ,
+                headers : {
+                    "Authorization" : 'Bearer' + " " + req.cookies.accessToken_xembong365
+                }
+            })
+        }
+        await user.deleteOne({ _id : req.body.id})
         res.redirect('/admin')
      }catch(err){
         console.log(err)
