@@ -1,4 +1,4 @@
-#THIS IS NOT OFFICAL VERSION CAUSE SECURITY 
+# this is not office version of project cause the secure
 #
 I AM DUXNG17 2001 , I AM NEWBIE , Thanks for watching .
 #
