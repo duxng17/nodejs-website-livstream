@@ -7,7 +7,7 @@ experience project at here : xembong365.com
 Techlonogy of pet project 
 #
 FONT-END : EJS , JS , HTML , CSS , AXIOS , AJAX , JQUERY , BOOTSTRAP  .
-#Cancel changes
+#
 BACK-END : NODE JS + EXPRESS  . 
 #
 MIRCO-SERVICE : S3 AW3 + MULTER , JWT , SOCKET.IO , RTMP + HLS .
