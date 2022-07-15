@@ -1,0 +1,19 @@
+version : "3.3"
+services:
+  app:
+    build: ./app
+    container_name: app_sever
+    ports: 
+      - "3000:3000"
+      - "3333:3333"
+      - "5555:5555"
+      - "6060:6060"
+  rtmp:
+    build: ./rtmp
+    ports:
+      - "1935:1935"
+      - "80:80"
+      - "8080:8080"
+    container_name: rtmp_sever
+    volumes:
+      - ./data:/tmp/hls

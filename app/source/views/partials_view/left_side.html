@@ -1,0 +1,59 @@
+<div class="col-xl-3 h-100 middle_left">
+        <div class="d-flex flex-column">
+            <a href="/truc-tiep" class="text-decoration-none text-center">
+                <div class="m-2">
+                    <span class="m_l-heading fw-bolder" style="text-decoration: underline;color:#000">
+                        Danh sách phát
+                    </span>
+                </div>
+            </a>
+            <% matchesAvaiableStream.forEach( (match)=> { %>
+                <% const fullName1 = match.team1.fullName.toLowerCase().replace(/ /gi, '-') %>
+                <% const fullName2 = match.team2.fullName.toLowerCase().replace(/ /gi, '-') %>
+                <% const slug = `truc-tiep-${fullName1}-vs-${fullName2}` %>
+                <% const convertTime = new Date(match.timer).getTime()%>
+                <% let timer =  new Date(convertTime).toLocaleString() %>
+                <% let date = timer.split(', ')[1] %>
+                <% let time = timer.split(', ')[0].slice(0,5)%>
+            <span class="m_l-blv fw-bolder text-center my-1
+                    <%=`finished_${match.stream.status.finished}`%> ">
+                    <%=match.commentator.userId%>
+            </span>
+            <a href="/truc-tiep/<%=slug%>?id=<%=match._id%>"
+                class="text-decoration-none text-center fw-bolder m-l_live 
+                <%=`begining_${match.stream.status.begining}`%>
+                <%=`finished_${match.stream.status.finished}`%>
+                <%=`comming_${match.stream.status.comming}`%> " >
+                    <div class="p-2 m_l-i d-flex justify-content-evenly">
+                        <span class="left_schedule-team1">
+                            <span class="left_schedule-name1" style="font-size: 14px;">
+                                <%=match.team1.shortName%>
+                                <img src="<%=match.team1.logo%>" class="logo ms-2" alt="<%=slug%>" width="25" height="25">
+                            </span>
+                        </span>
+                        <timer class="m_l-timer">
+                            <%=time%>
+                        </timer>
+                        <span class="left_schedule-team2">
+                            <span class="left_schedule-name2" style="font-size: 14px;">
+                                <img src="<%=match.team2.logo%>" class="logo me-2" alt="<%=slug%>" width="25" height="25">
+                                <%=match.team2.shortName%>
+                            </span> 
+                        </span>
+                    </div>
+                    <span><i class="fa fa-circle fa-circle1
+                        <%=`begining_${match.stream.status.begining}`%>
+                        <%=`comming_${match.stream.status.comming}`%> " ></i></span>
+                    <span><i class="fa fa-circle fa-circle2
+                        <%=`begining_${match.stream.status.begining}`%>
+                        <%=`comming_${match.stream.status.comming}`%> " ></i></span>
+                    <span><i class="fa fa-circle fa-circle3 
+                        <%=`begining_${match.stream.status.begining}`%>
+                        <%=`comming_${match.stream.status.comming}`%> " ></i></span>
+                    <span><i class="fa fa-circle fa-circle4
+                        <%=`begining_${match.stream.status.begining}`%>
+                        <%=`comming_${match.stream.status.comming}`%> " ></i></span>
+            </a>
+            <%})%>
+        </div>
+</div>

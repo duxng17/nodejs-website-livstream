@@ -1,0 +1,91 @@
+<div class="header position-fixed start-0 end-0">
+    <div class="row header-row">
+        <div class="col-lg col-sm header_left">
+            <nav
+                class="navbar navbar-expand-md navbar-expand-lg navbar-expand-xl navbar-expand-xxl navbar-light">
+                <div class="container-fluid container_fluid-header ">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item ">
+                                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                            </li>
+                            <li class="nav-item mx-lg-1">
+                                <a class="nav-link active" aria-current="page" href="/truc-tiep">Lives</a>
+                            </li>
+                            <li class="nav-item mx-lg-1">
+                                <a class="nav-link active" aria-current="page" href="/tin-tuc">News</a>
+                            </li>
+                            <li class="nav-item mx-lg-1 dropdown">
+                                <a class="nav-link dropdown-toggle active" aria-current="page" href="#"
+                                    id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    More
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="/lien-he">Liên Hệ</a></li>
+                                    <li><a class="dropdown-item" href="/high-light">Highlight</a></li>
+                                    <li><a class="dropdown-item" href="/dieu-khoan">Điều khoản</a></li>
+                                    <li><a class="dropdown-item" href="/ve-chung-toi">Về chúng tôi</a></li>
+                                    <li><a class="dropdown-item" href="/chinh-sach-bao-mat">Chính sách bảo mật</a></li>
+                                    <li><a class="dropdown-item" href="/cau-hoi-thuong-gap">Câu hỏi thường gặp</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="col-lg-3 mt-2 col-sm d-lg-flex justify-content-center d-sm-none header_mid">
+            <form class="d-lg-flex">
+                <input class="form-control me-2" style="font-size:14px;" type="search" placeholder="Tìm kiếm"
+                    aria-label="Search">
+                <button class="btn btn-sm" type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <div class="col-lg col-sm header_right mt-2" style="position : relative">
+            <div class="d-sm-flex flex-nowrap justify-content-end" >
+                <span class="avatar" style="display: none;">
+                    <button
+                        type="button" class="btn btn-sm fw-bolder me-3 header_logout py-2 px-3"> Exit
+                    </button>
+                    <img src="" alt="avt-profile" class="header_avatar-img">
+                    <div class="info_box shadow">
+                        <div class="d-flex justify-content-evenly py-4" style="border-bottom: 1px solid #cccc;">
+                            <span class="">
+                                <a href="/user/profile"><img src="" alt="avt-profile" class="box_avatar-img"></a>
+                            </span>
+                            <span class="">
+                                <span class="d-flex flex-column justify-content-center" style="height:65px">
+                                   <a href="/user/profile" class="info_box-btn userId fw-bolder text-uppercase"><span class=""></span></a>
+                                    <span class="email" style="font-size: 12px;color:#76797B"></span>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="text-center">
+                            <span class="d-flex flex-column justify-content-center" style="height:86px">
+                                <a href="/user/profile" class="info_box-btn"><span class="fw-bolder ">Cài đặt tài khoản</span></a>
+                                <a href="/admin" class="info_box-btn mt-2 admin" style="display:none"><span class="fw-bolder ">Trang quản trị</span></a>
+                                <a href="#" class="info_box-btn mt-2 infoBox_btn-logout "><span class="fw-bolder">Đăng xuất</span></a>
+                            </span>
+                        </div>
+                    </div>       
+                </span>
+                <a style="color:inherit;text-decoration: none;" href="/login">
+                    <button type="button" style="display:none" class="btn headerBtn__register btn-sm fw-bolder me-3">
+                        Đăng Kí
+                    </button>
+                </a>
+                <a style="color:inherit;text-decoration: none;" href="/login">
+                    <button type="button" style="display:none" class="btn headerBtn__login btn-sm fw-bolder me-3">
+                        Đăng Nhập
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

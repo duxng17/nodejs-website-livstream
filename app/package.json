@@ -1,0 +1,34 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app_sever.js",
+  "scripts": {
+    "start": "concurrently --kill-others \"npm run appSever\" \"npm run socketIoSever\" \"npm run authSever\" \"npm run imageSever\" ",
+    "appSever": "nodemon app_sever.js",
+    "socketIoSever": "nodemon ./micro_services/socketIo_sever.js",
+    "authSever": "nodemon ./micro_services/auth_sever.js",
+    "imageSever": "nodemon ./micro_services/image_sever.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1167.0",
+    "axios": "^0.27.2",
+    "concurrently": "^7.1.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "eiows": "^4.0.1",
+    "ejs": "^3.0.2",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.3.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^2.0.15",
+    "sharp": "^0.30.7",
+    "socket.io": "^4.4.1"
+  }
+}

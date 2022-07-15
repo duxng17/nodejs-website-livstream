@@ -1,0 +1,44 @@
+                <h2 class="ms-3 fw-bolder fs-6 shedules_heading" style="margin-bottom: 14px;">Lịch Trực Tiếp</h2>
+                <center>
+                    <div class="shedule_live d-flex justify-content-center flex-wrap">
+                        <% matchesCapableStream.forEach( (match) => { %>
+                            <% let fullName1 = removeAccents(match.team1.fullName.toLowerCase().replace(/ /gi, '-')) %>
+                            <% let fullName2 = removeAccents(match.team2.fullName.toLowerCase().replace(/ /gi, '-')) %>
+                            <% function removeAccents(str) { %>
+                            <%    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D') %>
+                            <%}%>
+                            <% let slug = `truc-tiep-${fullName1}-vs-${fullName2}` %>
+                            <% let convertTime = new Date(match.timer).getTime()%>
+                            <% let timer =  new Date(convertTime).toLocaleString() %>
+                            <% let date = timer.split(', ')[1] %>
+                            <% let time = timer.split(', ')[0].slice(0,5)%>
+                            <% let score = `${match.team1.score} - ${match.team2.score}` %>
+                            <a href="/truc-tiep/<%=slug%>?id=<%=match._id%>" class="schedule_live-item shadow-sm">
+                                <div class="d-flex justify-content-evenly">
+                                    <div class="schedule_item-team mt-4 mb-4 d-flex flex-column fw-bolder">
+                                        <center>
+                                            <img src="<%=match.team1.logo%>" class="logo" alt="<%=slug%>" height="35px" width="35px">
+                                        </center>
+                                        <span class="mt-2">
+                                            <%=match.team1.fullName%>
+                                        </span>
+                                    </div>
+                                    <div class="schedule_item-info text-center d-flex fw-bold flex-column">
+                                        <span class="mt-2 schedule_league" style="color:#4164A9"><%=match.league%></span>
+                                        <span class="schedule_score d-none" style="font-size: 14px;"><%=score%></span>
+                                        <span class="schedule_time"><%=time%></span>
+                                        <span class="schedule_date"><%=date%></span>
+                                    </div>
+                                    <div class="schedule_item-team mt-4 mb-4 d-flex flex-column fw-bolder">
+                                        <center>
+                                            <img src="<%=match.team2.logo%>" class="logo" alt="<%=slug%>" height="35px" width="35px">
+                                        </center>
+                                        <span class="mt-2">
+                                            <%=match.team2.fullName%>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>  
+                        <%})%>         
+                    </div>
+                </center>

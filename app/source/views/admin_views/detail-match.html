@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="none">
+    <title>TRANG QUẢN TRỊ</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" as="style" 
+    onload="this.onload=null;this.rel='stylesheet'" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preload" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" as="style" 
+    onload="this.onload=null;this.rel='stylesheet'" integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
+    <noscript>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
+        integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
+    </noscript>
+    <link rel="stylesheet" media href="/css/main.css">
+    <style>
+        .input_text{
+            width: 75%;
+            align-self: center;
+            margin : 10px ;
+            height: 40px;
+            border-top : unset;
+            border-left: unset;
+            border-right : unset ;
+            outline: inherit;
+            background-color: unset;
+        }
+    </style>
+</head>
+<body>
+    <div id="root" class="g-0 container-fluid">
+        <%- include('../partials_view/header.html') -%>
+        <!--  -->
+        <div class="middle row g-0">
+            <%- include('../partials_view/left_side.html') -%>
+            <!--  -->
+            <div class="col-xl-9 middle_right">
+                  <!--  -->
+                  <h2 class="ms-3 fw-bolder my-4 fs-6">Chỉnh sửa thông tin trận đấu </h2>
+                  <center>
+                      <button type="button" class="btn btn_show-formEditMatch banner_btn-watch px-3 fs-6 fw-bolder" 
+                      style="border-radius: 15px!important"> Sửa </button>
+                      <form id="form_edit-match" class="d-flex d-none flex-column mb-5">
+                          <input type="text" class="input_text d-none" value="<%=match._id%>" name="id">
+                          <input type="text" class="input_text" value="<%=match.league%>" name="league">
+                          <label class="mt-3">Đội 1</label>
+                          <input type="text" class="input_text" value="<%=match.team1.fullName%>" name="fullName1">
+                          <input type="text" class="input_text" value="<%=match.team1.shortName%>" name="shortName1">
+                          <input type="text" class="input_text" value="<%=match.team1.logo%>"  name="logo1">
+                          <input type="number" class="input_text" value="<%=match.team1.score%>" name="score1">
+                          <label class="mt-3">Đội 2</label>
+                          <input type="text" class="input_text" value="<%=match.team2.fullName%>" name="fullName2">
+                          <input type="text" class="input_text" value="<%=match.team2.shortName%>" name="shortName2">
+                          <input type="text" class="input_text" value="<%=match.team2.logo%>" name="logo2">
+                          <input type="number" class="input_text" value="<%=match.team2.score%>" name="score2">
+                          <label class="mt-3">Thông tin thêm</label>
+                          <input type="text" class="input_text" value="<%=match.stadium %>" name="stadium">
+                          <% let timer = new Date(match.timer).getTime() + 7*60*60*1000; %> 
+                          <% let realTimer = new Date(timer).toISOString().split('T')[0] + 'T' +  new Date(timer).toISOString().split('T')[1].split(':')[0] + ':' + new Date(timer).toISOString().split('T')[1].split(':')[1] ; %>
+                          <input type="datetime-local" class="input_time input_text" value="<%=realTimer%>" name="timer">
+                          <input type="text" class="input_srcImg input_text d-none"  value="<%=match.banner%>" name="srcBanner">
+                          <span>
+                              <label>Banner </label>
+                              <input type="file" id="upload-photo" name="banner" class="ms-2 align-self-center mt-3" accept=".jpg, .jpeg, .png">
+                          </span>
+                          <span>
+                              <label>Trận đấu sẽ được trực tiếp </label>
+                              <input type="checkbox" class="ms-2 mt-2  input_checkbox"  value="true" name="stream">
+                          </span>
+                          <span>
+                              <label>Trận đấu đáng chú ý </label>
+                              <input type="checkbox" class="ms-2  input_checkbox" value="true" name="hot">
+                          </span>
+                          <span>
+                            <label> Huỷ 2 trạng thái trên </label>
+                            <input type="checkbox" class="ms-2  input_checkbox" value="true" name="none">
+                          </span>
+                          <span>
+                              <img src="<%=match.banner%>" alt="" width="235" height="132" class="img_banner-uploaded">
+                          </span>
+                          <button type="submit" class="btn w-25 mt-4 align-self-center btn_add-match banner_btn-watch px-3 fs-6 fw-bolder" 
+                          style="border-radius: 15px!important"> CẬP NHẬT </button>
+                      </form>
+                  </center>
+                <!--  -->
+                <%- include('../partials_view/intro_home.html') -%>
+                <!--  -->
+                <%- include('../partials_view/bottom.html') -%>
+                <!--  -->
+            </div>
+        </div>
+        <!--  -->
+        <%- include('../partials_view/footer.html') -%>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js_client/validateUser.js"></script>
+    <script src="/js_client/banner.js"></script>
+    <script src="/js_client/adminUpdateMatch.js"></script>
+     <script>
+         $(document).ready(() => {
+            $('.btn_show-formEditMatch').click( () => {
+                $('#form_edit-match').toggleClass('d-none')
+            })
+        })
+    </script>
+</body>
+</html>

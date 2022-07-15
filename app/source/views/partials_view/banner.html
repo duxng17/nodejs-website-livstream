@@ -1,0 +1,48 @@
+<center>
+    <div id="carouselExampleControls" class="carousel carousel-dark  slide" data-bs-ride="carousel">
+        <div class="carousel-inner"> 
+            <% if(matchesHot) { %>
+            <% matchesHot.forEach( (match) => { %>
+            <% const fullName1 = match.team1.fullName.toLowerCase().replace(/ /gi, '-') %>
+            <% const fullName2 = match.team2.fullName.toLowerCase().replace(/ /gi, '-') %>
+            <% const slug = `truc-tiep-${fullName1}-vs-${fullName2}` %>
+            <% const convertTime = new Date(match.timer).getTime()%>
+            <% let timer =  new Date(convertTime).toLocaleString()%>
+            <% let date = timer.split(', ')[1] %>
+            <% let time = timer.split(', ')[0].slice(0,5)%>
+            <% let score = `${match.team1.score} - ${match.team2.score}` %>
+            <div class="carousel-item ">
+                <div class="m_r-video d-flex justify-content-center mb-4 mt-4">
+                    <span class="">
+                        <img src="<%=match.banner%>" class="logo banner_intro" alt="/truc-tiep/<%=slug%>?id=<%=match._id%>" width="550">
+                    </span>
+                    <div class="card_video shadow-sm text-center d-flex flex-column justify-content-evenly" style=" width:18rem;background-color: #fff;">
+                            <span class="fw-bolder" style="font-size: 14px;text-decoration: underline;color:#4164A9"><%=match.league%></span>
+                            <span class="fs-6 m_card-title fw-bolder"><%=match.team1.fullName%></span>
+                            <img src="<%=match.team1.logo%>" class="logo align-self-center" alt="<%=slug%>" width="35" height="35">
+                            <span class="fs-6 m_card-title fw-bolder"><%=match.team2.fullName%></span>
+                            <img src="<%=match.team2.logo%>" class="logo align-self-center" alt="<%=slug%>" width="35" height="35">
+                            <span class="fs-6 m_card-title banner_schedule-score fw-bolder d-none"><%=score%></span>
+                            <span class="fs-6 m_card-title banner_schedule-time fw-bolder"><%=time%></span>
+                            <span class="fs-6 m_card-title banner_schedule-timer d-none fw-bolder"><%=match.timer%></span>
+                            <span class="fs-6 m_card-title banner_schedule-date fw-bolder"><%=date%></span>
+                            <a style="color:inherit;text-decoration: none;" href="/truc-tiep/<%=slug%>?id=<%=match._id%>">
+                                <button type="button" class="btn banner_btn-watch btn-sm fw-bolder px-2 py-1">
+                                    Watch Now
+                                </button>
+                            </a>
+                    </div>
+                </div>
+            </div>             
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        <%})%>
+        <%}%>
+    </div>
+</center> 

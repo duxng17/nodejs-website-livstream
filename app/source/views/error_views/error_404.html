@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPPS - CÓ GÌ ĐÓ SAI SAI !</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+	<meta name="robots" content="none">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" as="style" 
+    onload="this.onload=null;this.rel='stylesheet'" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preload" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" as="style" 
+    onload="this.onload=null;this.rel='stylesheet'" integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
+    <noscript>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
+        integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
+    </noscript>
+
+    <link rel="stylesheet" media href="/css/main.css">
+	<style type=text/css>
+
+		* {
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+		
+		body {
+			padding: 0;
+			margin: 0;
+		}
+		
+		#notfound {
+			position: relative;
+			height: 25vh;
+		}
+		
+		#notfound .notfound {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+		}
+		
+		.notfound {
+			max-width: 520px;
+			width: 100%;
+			line-height: 1.4;
+			text-align: center;
+		}
+		
+		@media only screen and (max-width: 767px) {
+			.notfound .notfound-error h1 {
+				font-size: 148px;
+			}
+		}
+		
+		@media only screen and (max-width: 480px) {
+			.notfound .notfound-error {
+			height: 148px;
+			margin: 0px auto 10px;
+		}
+		.notfound .notfound-error h1 {
+			font-size: 120px;
+			font-weight: 200px;
+		}
+		.notfound .notfound-error h2 {
+			font-size: 30px;
+		}
+		.notfound a {
+			padding: 7px 15px;
+			font-size: 24px;
+		}
+		.h2 {
+			font-size: 148px;
+		}
+		}
+		</style>
+</head>
+
+<body>
+    <div id="root" class="g-0 container-fluid">
+        <%- include('../partials_view/header.html') -%>
+        <!--  -->
+        <div class="middle row g-0">
+            <%- include('../partials_view/left_side.html') -%>
+            <!--  -->
+            <div class="col-xl-9 middle_right">
+                <%- include('../partials_view/banner.html') -%>
+				<!--  -->
+				<div id="notfound">
+					<div class="notfound">
+						<h1>Sorry the page can't be loaded!</a></h1>
+					</div>
+				</div>
+                <!--  -->
+                <%- include('../partials_view/schedules.html') -%>
+                <!--  -->
+                <%- include('../partials_view/fixtures.html') -%>
+                <!--  -->
+                <!--  -->
+                <%- include('../partials_view/intro_home.html') -%>
+                <!--  -->
+                <%- include('../partials_view/bottom.html') -%>
+                <!--  -->
+            </div>
+        </div>
+        <!--  -->
+        <%- include('../partials_view/footer.html') -%>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js_client/validateUser.js"></script>
+    <script src="/js_client/banner.js"></script>
+	<script src="/js_client/matchesStatus.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+    <script src="//images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
+</body>
+
+</html>

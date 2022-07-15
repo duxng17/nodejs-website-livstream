@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="none">
+    <title>HỒ SƠ</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+   
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" as="style" 
+    onload="this.onload=null;this.rel='stylesheet'" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preload" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" as="style" 
+    onload="this.onload=null;this.rel='stylesheet'" integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
+    
+
+    <noscript>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
+        integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
+       
+    </noscript>
+
+    <link rel="stylesheet" media href="/css/main.css">
+    <style>
+        input{
+            border: 1px solid #963CFF;
+            border-radius: 5px;
+            height: 35px;
+        }
+        .profile_user{
+            height: 550px;
+        }
+        .profile_user-avt{
+            border: 1px solid tomato;
+            border-radius : 50%;
+            background-color:#ffff;
+            vertical-align: middle;
+            width: 85px;
+            height: 85px;
+        }
+        .btn_profile{
+            background-color: unset;
+            border : unset;
+            text-decoration: underline;
+            color : #963CFF;
+        }
+        .validation_del-account{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            position: fixed;
+            overflow-y: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.4);
+            animation: opacity_login linear 0.2s ;
+        }
+        .validation_del-avt{
+            z-index: 10000;
+            position: fixed;
+            overflow-y: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.4);
+            animation: opacity_login linear 0.2s ;
+        }
+        .profile_user-content{
+            /* background-color: #ffff; */
+            /* /* border: 1px solid #cccc; */
+            height: 550px;
+        }
+        .wraper_form{
+            background-color: #ffff;
+            border-radius: 15px;
+            transform: translateY(100%);
+            margin : auto !important;
+            height :200px;
+            width: 350px;
+
+        }
+        .btn_confirm-delAvt:hover{
+            background-color: tomato !important;
+        }
+        .btn_cancel-delAvt:hover{
+            background-color: #cccc !important;
+        }
+        .btn_confirm-delAccount:hover{
+            background-color: tomato !important;
+        }
+        .btn_cancel-delAccount:hover{
+            background-color: #cccc !important;
+        }
+        @keyframes opacity_login {
+        from{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root" class="g-0 container-fluid">
+        <%- include('../partials_view/header.html') -%>
+        <!--  -->
+        <div class="middle row g-0">
+            <%- include('../partials_view/left_side.html') -%>
+            <!--  -->
+            <div class="col-xl-9 middle_right">
+                    <div class="profile_user mb-3">
+                        <div class="profile_user-content d-flex flex-column justify-content-evenly">
+                            <span class="text-center fw-bolder" style="font-size: 20px;">
+                                TÀI KHOẢN CỦA BẠN   
+                            </span>
+                            <div class="d-flex flex-column mx-3" style="border-bottom: 1px solid #ccc;">
+                                <span class="mb-2 fw-bolder">Ảnh hồ sơ</span>
+                                <span class="d-flex justify-content-between mb-2">
+                                    <img src="" class="profile_user-avt" alt="avt-profile-user">
+                                    <input type="file" accept=".jpg, .jpeg, .png" class="fw-bolder w-50 mt-2 d-none input_profile-avt" style="font-size:14px;border:none!important;">
+                                    <span class="d-flex wraper_btn-avt">
+                                        <span class="btn_avt-before">
+                                            <button type="button"
+                                                class="fw-bolder btn_profile btn_delete-avt" style="font-size:14px;">
+                                                Xoá ảnh
+                                            </button>   
+                                            <button type="button"
+                                            class="fw-bolder btn_profile btn_update-avt" style="font-size:14px;">
+                                                Cập nhật ảnh
+                                            </button>
+                                        </span>
+                                        <span class="btn_avt-after" style="display: none;">
+                                            <button type="button"
+                                            class="fw-bolder me-4 btn_profile btn_cancelUpdate-avt" style="font-size:14px">
+                                                Huỷ
+                                            </button>  
+                                            <button type="button"
+                                            class="fw-bolder btn_profile btn_complete-avt" style="font-size:14px">
+                                                Hoàn thành
+                                            </button>   
+                                        </span>
+                                    </span>
+                                </span>   
+                            </div>
+                            <div class="d-flex flex-column mx-3" style="border-bottom: 1px solid #ccc;">
+                                <span class="mb-2 fw-bolder">User ID</span>
+                                   <span class="userId_before ">
+                                        <span class="d-flex mb-2 justify-content-between">
+                                            <span class="fw-bolder profile_userId" style="color:#5D6065"></span>
+                                            <span class="d-flex"> 
+                                                <button type="button" 
+                                                class="fw-bolder btn_profile btn_update-userID" style="font-size:14px;">
+                                                    Thay đổi user ID
+                                                </button>     
+                                            </span>
+                                        </span>
+                                   </span>
+                                    <span class="userId_after" style="display:none">
+                                        <span class="d-flex mb-2 userId_after justify-content-between">
+                                            <input type="text" class="fw-bolder w-25 mb-2 input_profile-userId" minlength="2" maxlength="15" style="font-size:14px;height:35px;">
+                                            <span class="d-flex"> 
+                                                <button type="button"
+                                                class="fw-bolder me-4 btn_profile btn_cancelUpdate-userId" style="font-size:14px;">
+                                                    Huỷ
+                                                </button>  
+                                                <button type="button"
+                                                class="fw-bolder btn_profile btn_complete-userId" style="font-size:14px;">
+                                                    Hoàn Thành
+                                                </button>      
+                                            </span>
+                                        </span>
+                                    </span>    
+                            </div>
+                            <div class="d-flex flex-column mx-3" style="border-bottom: 1px solid #ccc;">
+                                <span class="mb-2 fw-bolder">Email</span>
+                                <span class="email_before">
+                                    <span class="d-flex justify-content-between mb-2">
+                                        <span class="fw-bolder profile_email" style="color:#5D6065"></span>
+                                        <span class="d-flex"> 
+                                            <button type="button" 
+                                            class="fw-bolder btn_profile btn_update-email" style="font-size:14px;">
+                                                Thay đổi email
+                                            </button>     
+                                        </span>
+                                    </span>
+                                </span>
+                                <span class="email_after" style="display:none">
+                                    <span class="d-flex justify-content-between mb-2"> 
+                                        <input type="email" class="fw-bolder w-25 mb-2 input_profile-email" minlength="3" maxlength="70" style="font-size:14px;height:35px;" >
+                                        <span class="d-flex"> 
+                                            <button type="button"
+                                            class="fw-bolder me-4 btn_profile btn_cancelUpdate-email" style="font-size:14px;">
+                                                Huỷ
+                                            </button>  
+                                            <button type="button"
+                                            class="fw-bolder btn_profile btn_complete-email" style="font-size:14px;">
+                                                Hoàn Thành
+                                            </button>       
+                                        </span>
+                                    </span>  
+                                </span>
+                            </div>
+                            <div class="d-flex flex-column mx-3" style="border-bottom: 1px solid #ccc;">
+                                <span class="mb-2 fw-bolder">Vai trò</span>
+                                <span class="d-flex justify-content-between mb-2">
+                                    <span class="fw-bolder profile_role" style="color:#5D6065"></span>
+                                </span>   
+                            </div>
+                            <div class="d-flex flex-column mx-3" style="border-bottom: 1px solid #ccc;">
+                                <span class="mb-2 fw-bolder">Tài khoản</span>
+                                <span class="account_before">
+                                    <span class="d-flex justify-content-end mb-2">
+                                    <button type="button"
+                                    class="fw-bolder btn_profile btn_delete-account" style="font-size:14px;">
+                                        Xoá tài khoản
+                                    </button> 
+                                    <button type="button"
+                                    class="fw-bolder btn_profile btn_update-password" style="font-size:14px;">
+                                        Thay đổi mật khẩu
+                                    </button> 
+                                    </span>
+                                </span>
+                                <span class="account_after mb-2" style="display:none">
+                                    <input type="password" class=" mb-2 me-4 w-25 input_password-current" placeholder="  Mật khẩu hiện tại">
+                                    <input type="password" class="w-25 me-4 input_password-after" placeholder="   Mật khẩu muốn thay đổi">
+                                    <button type="button"
+                                        class="fw-bolder btn_profile btn_cancelUpdate-password" style="font-size:14px;">
+                                        Huỷ
+                                    </button> 
+                                    <button type="button"
+                                        class="fw-bolder btn_profile btn_confirmUpdate-password" style="font-size:14px;">
+                                        Xác nhận
+                                    </button> 
+                                </span>   
+                            </div>
+                        </div>
+                    </div>
+                <!--  -->
+                <%- include('../partials_view/schedules.html') -%>
+                <!--  -->
+                <%- include('../partials_view/fixtures.html') -%>
+                <!--  -->
+                <%- include('../partials_view/intro_home.html') -%>
+                <!--  -->
+                <%- include('../partials_view/bottom.html') -%>
+                <!--  -->
+            </div>
+            <!--  -->
+            <div class="validation_del-avt h-100 w-100" style="display:none">
+                    <div class="wraper_form d-flex flex-column justify-content-evenly">
+                        <span class="text-center fs-5 fw-bolder">Bạn có chắc chắn không?</span>
+                        <span class="d-flex justify-content-evenly">
+                            <button class="fw-bolder shadow-sm py-2 btn_cancel-delAvt" 
+                            style="background-color:#F2F3F5;border:unset;border-radius: 5px;width: 90px;">
+                                Huỷ
+                            </button>
+                            <button class="fw-bolder shadow-sm py-2 px-2 btn_confirm-delAvt" 
+                            style="background-color: #963CFF;border:unset;border-radius: 5px;color:#fff;width: 90px;">
+                                Đồng ý
+                            </button>
+                        </span>
+                    </div>      
+            </div>
+            <!--  -->
+            <div class="validation_del-account h-100 w-100" style="display:none">
+                <div class="wraper_form d-flex flex-column justify-content-evenly">
+                    <span class="text-center fs-5 fw-bolder">Bạn có chắc chắn không?</span>
+                    <span class="d-flex justify-content-evenly">
+                        <button class="fw-bolder py-2 btn_cancel-delAccount" 
+                        style="background-color:#F2F3F5;border:unset;border-radius: 5px;width: 90px;">
+                            Huỷ
+                        </button>
+                        <button class="fw-bolder py-2 px-2 btn_confirm-delAccount" 
+                        style="background-color: #963CFF;border:unset;border-radius: 5px;color:#fff;width: 90px;">
+                            Đồng ý
+                        </button>
+                    </span>
+                </div>      
+            </div>
+        </div>
+        <!--  -->
+        <%- include('../partials_view/footer.html') -%>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js_client/validateUser.js"></script>
+    <script src="/js_client/matchesStatus.js"></script>
+    <script src="/js_client/userProfile.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+    <script>
+    $(document).ready( () => {
+        $('.btn_delete-account').click( () => {
+            $('.validation_del-account').css('display','block')
+        })
+        $('.btn_cancel-delAccount').click( () => {
+            $('.validation_del-account').css('display','none')
+        })
+        $('.btn_delete-avt').click( () => {
+            $('.validation_del-avt').css('display','block')
+        })
+        $('.btn_cancel-delAvt').click( () => {
+            $('.validation_del-avt').css('display','none')
+        })
+        $('.btn_update-avt').click( () => {
+            $('.input_profile-avt').toggleClass('d-none')
+            $('.btn_avt-after').css('display','block')
+            $('.btn_avt-before').css('display','none')
+        })
+        $('.btn_cancelUpdate-avt').click( () =>{
+            $('.input_profile-avt').toggleClass('d-none')
+            $('.btn_avt-after').css('display','none')
+            $('.btn_avt-before').css('display','block')
+        })
+        $('.btn_update-userID').click( () => {
+            $('.userId_before').css('display','none')
+            $('.userId_after').css('display','block')
+        })
+        $('.btn_cancelUpdate-userId').click( ()=>{
+            $('.userId_before').css('display','block')
+            $('.userId_after').css('display','none')
+        })
+        $('.btn_update-email').click( () => {
+            $('.email_before').css('display','none')
+            $('.email_after').css('display','block')
+        })
+        $('.btn_cancelUpdate-email').click( ()=>{
+            $('.email_before').css('display','block')
+            $('.email_after').css('display','none')
+        })
+        $('.btn_update-password').click( ()=>{
+            $('.account_before').css('display','none')
+            $('.account_after').css('display','block')
+        })
+        $('.btn_cancelUpdate-password').click( ()=>{
+            $('.account_before').css('display','block')
+            $('.account_after').css('display','none')
+        })
+    })
+    </script>
+</body>
+
+</html>

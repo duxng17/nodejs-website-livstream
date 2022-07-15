@@ -1,0 +1,36 @@
+                <h2 class="ms-3 fw-bolder fs-6" style="margin-top: 14px; margin-bottom: 10px;">Lịch Thi Đấu</h2>
+                <div class="fixture_live d-flex justify-content-center flex-wrap">
+                    <% if ( matches ) { %>
+                        <% matches.forEach( (match,index) => { %>
+                        <% const convertTime = new Date(match.timer).getTime()%>
+                        <% let timer =  new Date(convertTime).toLocaleString() %>
+                        <% let date = timer.split(', ')[1] %>
+                        <% let time = timer.split(', ')[0].slice(0,5)%>
+                    <a href="#" class="fixture_live-item shadow-sm">
+                        <div class="d-flex justify-content-evenly">
+                            <div class="fixture_item-team mt-4 mb-4 d-flex flex-column fw-bolder">
+                                <center>
+                                    <img src="<%=match.team1.logo%>" class="logo" alt="" height="35px" width="35px">
+                                </center>
+                                <span class="mt-2 text-center">
+                                    <%=match.team1.fullName%>
+                                </span>
+                            </div>
+                            <div class="fixture_item-info text-center d-flex fw-bold flex-column">
+                                <span class="mt-2 fixture_league" style="color:#4164A9"><%=match.league%></span>
+                                <span class="fixture_time"><%=time%></span>
+                                <span class="fixture_date"><%=date%></span>
+                            </div>
+                            <div class="fixture_item-team mt-4 mb-4 d-flex flex-column fw-bolder">
+                                <center>
+                                    <img src="<%=match.team2.logo%>" class="logo" alt="" height="35px" width="35px">
+                                </center>
+                                <span class="mt-2 text-center">
+                                    <%=match.team2.fullName%>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                    <%})%>
+                    <%}%>
+                </div>
