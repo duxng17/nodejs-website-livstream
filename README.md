@@ -1,6 +1,8 @@
 # this is not office version of project cause the secure
 #
-I AM DUXNG17 2001 , I AM NEWBIE , Thanks for watching .
+I AM DUXNG17 2001 - I AM NEWBIE - Thanks for watching .
+#
+explore project at here : xembong365.com 
 #
 Techlonogy of pet project 
 #
